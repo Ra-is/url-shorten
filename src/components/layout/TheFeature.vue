@@ -1,4 +1,8 @@
 <template>
+       <div class="flex flex-col justify-between">
+
+       <div class="">
+      
         <div class="max-w-6xl m-auto h-48 flex flex-row justify-center items-center">
             <feature>
                 <img src="../../assets/thumbsup.png"/>
@@ -62,15 +66,25 @@
             </feature>
 
         </div>
+       </div>
+ 
+        <div>
+            <the-footer></the-footer>
+        </div>
+        
        
+        </div>
+        
 
 </template>
 
 <script>
 import Feature from "../UI/Feature.vue";
+import TheFooter from './TheFooter.vue'
 export default {
  components: {
-    Feature
+    Feature,
+    TheFooter
  }
 }
 </script>
