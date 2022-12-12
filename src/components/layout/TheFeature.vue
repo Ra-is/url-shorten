@@ -1,8 +1,5 @@
 <template>
-       <div class="flex flex-col justify-between">
-
-       <div class="">
-      
+       <div class="flex flex-col">
         <div class="max-w-6xl m-auto h-48 flex flex-row justify-center items-center">
             <feature>
                 <img src="../../assets/thumbsup.png"/>
@@ -68,12 +65,12 @@
         </div>
        </div>
  
-        <div>
+        <div class="fixed bottom-0 left-0 right-0">
             <the-footer></the-footer>
         </div>
         
        
-        </div>
+   
         
 
 </template>
