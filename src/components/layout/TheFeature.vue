@@ -10,7 +10,7 @@
                 </template>
             </feature>
              <feature>
-                <img src="../../assets/thumbsup.png"/>
+                <img src="../../assets/shortened.png"/>
                 <template v-slot:header>
                     Shortened
                 </template>
@@ -20,7 +20,7 @@
             </feature>
 
              <feature>
-                <img src="../../assets/thumbsup.png"/>
+                <img src="../../assets/secure.png"/>
                 <template v-slot:header>
                     Secure
                 </template>
@@ -33,7 +33,7 @@
 
         <div class="max-w-6xl m-auto h-48 flex flex-row justify-center items-center mt-2">
             <feature>
-                <img src="../../assets/thumbsup.png"/>
+                <img src="../../assets/statistics.png"/>
                 <template v-slot:header>
                     Statistics
                 </template>
