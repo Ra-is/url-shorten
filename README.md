@@ -18,6 +18,12 @@
     ```bash
     cp .env.example .env
     ```
+1. Create API token from this and add to your environment variable
+
+    ```bash
+    https://dev.bitly.com/
+    ```
+
 
 1. Install dependencies.
 
