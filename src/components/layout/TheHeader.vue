@@ -59,7 +59,6 @@ methods:{
 
 
      const token = import.meta.env.VITE_API_SHORTEN_TOKEN;
-      console.log(token)
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer "+token);
     myHeaders.append("Content-Type", "application/json");
