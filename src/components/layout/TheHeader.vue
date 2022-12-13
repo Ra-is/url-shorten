@@ -6,13 +6,14 @@
         <div class="flex flex-row  w-full p-3 px-10">
             <input type="text" class="bg-white border flex-1 focus:border-none focus:border-black" v-model="user_url">
             <button v-if="!showloading" class="bg-blue-500 text-white p-2" @click="shortenUrl">Shorten</button>
-            <button type="button" v-if="showloading" class="flex flex-row p-2 text-white bg-green-500 ..." disabled>
-                <svg class="bg-white animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-                    <!-- ... -->
-                </svg>
-                Processing...
+            <button type="button" v-if="showloading" class="flex flex-row p-2  text-white bg-green-500" disabled>
+                <!-- <svg class="bg-white animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+                  
+                </svg> -->
+                <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path></svg>
+                 <span class="ml-1">Processing...</span>
             </button>
-        </div>
+        </div> 
         
 
          <div v-if="!!my_shorten_url" class="flex flex-row items-center justify-center space-x-3">
