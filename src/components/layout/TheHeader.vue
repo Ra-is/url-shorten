@@ -58,9 +58,10 @@ methods:{
     };
 
 
-    // console.log(process.env.SHORTEN_TOKEN)
+     const token = import.meta.env.VITE_API_SHORTEN_TOKEN;
+      console.log(token)
     var myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer be0ea07d1650ad02da3473d3d720c98a53697725");
+    myHeaders.append("Authorization", "Bearer "+token);
     myHeaders.append("Content-Type", "application/json");
 
     var raw = JSON.stringify({
