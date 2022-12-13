@@ -9,8 +9,12 @@
         </div>
 
          <div v-if="!!my_shorten_url" class="flex flex-row items-center justify-center space-x-3">
-            <input class="text-white bg-black text-center font-sans p-2 focus:outline-none" :value="my_shorten_url" ref="message"  readonly/>
+            <input class="text-blue-300 bg-black text-center font-sans p-2 focus:outline-none" :value="my_shorten_url" ref="message"  readonly/>
             <button class="bg-green-500 text-white p-1 px-4 rounded-md" @click="copyToClipboard" >Copy</button>
+         </div>
+
+          <div v-if="!!has_error" class="flex flex-row items-center justify-center space-x-3">
+            <span class="text-red-400 font-serif tracking-widest">{{has_error}}</span>
          </div>
         
           
@@ -25,7 +29,8 @@ export default {
     data(){
         return {
             user_url: null,
-            my_shorten_url: null
+            my_shorten_url: null,
+            has_error : null
         }
     },
 methods:{
@@ -38,11 +43,12 @@ methods:{
  
 
      async shortenUrl() {
+        this.has_error = null
     const urlData = {
       long_url: this.user_url,
     };
 
-  const header = 'Bearer be0ea07d1650ad02da3473d3d720c98a53697725'
+
 
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer be0ea07d1650ad02da3473d3d720c98a53697725");
@@ -68,6 +74,7 @@ methods:{
 
     if (!response.ok) {
       // error ...
+      this.has_error = responseData.message || 'Failed to send request.'
       console.log(responseData.message || 'Failed to send request.')
     }
     else
