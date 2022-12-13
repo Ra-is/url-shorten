@@ -5,8 +5,15 @@
             <span class="text-white font-sans pb-2">Paste the URL to be shortened</span>
         <div class="flex flex-row  w-full p-3 px-10">
             <input type="text" class="bg-white border flex-1 focus:border-none focus:border-black" v-model="user_url">
-            <button class="bg-blue-500 text-white p-2" @click="shortenUrl">Shorten</button>
+            <button v-if="!showloading" class="bg-blue-500 text-white p-2" @click="shortenUrl">Shorten</button>
+            <button type="button" v-if="showloading" class="flex flex-row p-2 text-white bg-green-500 ..." disabled>
+                <svg class="bg-white animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+                    <!-- ... -->
+                </svg>
+                Processing...
+            </button>
         </div>
+        
 
          <div v-if="!!my_shorten_url" class="flex flex-row items-center justify-center space-x-3">
             <input class="text-blue-300 bg-black text-center font-sans p-2 focus:outline-none" :value="my_shorten_url" ref="message"  readonly/>
@@ -30,7 +37,8 @@ export default {
         return {
             user_url: null,
             my_shorten_url: null,
-            has_error : null
+            has_error : null,
+            showloading: false
         }
     },
 methods:{
@@ -44,12 +52,13 @@ methods:{
 
      async shortenUrl() {
         this.has_error = null
+        this.showloading = true
     const urlData = {
       long_url: this.user_url,
     };
 
 
-
+    // console.log(process.env.SHORTEN_TOKEN)
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer be0ea07d1650ad02da3473d3d720c98a53697725");
     myHeaders.append("Content-Type", "application/json");
@@ -76,10 +85,12 @@ methods:{
       // error ...
       this.has_error = responseData.message || 'Failed to send request.'
       console.log(responseData.message || 'Failed to send request.')
+      this.showloading = false
     }
     else
     {
      this.my_shorten_url = responseData.link
+     this.showloading = false
     }
 
     
